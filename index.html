@@ -4,31 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Boda</title>
+    <!-- Estilos Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/Invitacion/assets/css/videofondo.css">
-    <link rel="stylesheet" href="/Invitacion/assets/css/navbar.css">
-    <link rel="stylesheet" href="/Invitacion/assets/css/fotosFav.css">
+
+    <!-- Icono de Pestaña -->
     <link rel="icon" type="image/png" href="assets/img/favicon(1).ico">
+    
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="/Invitacion/assets/css/responsive.css">
+    <link rel="stylesheet" href="/Invitacion/assets/css/popup.css">
+    <link rel="stylesheet" href="/Invitacion/assets/css/navbar.css">
+    
+    <!-- Icono de fontawesome -->
     <script src="https://kit.fontawesome.com/c6307cf0cf.js" crossorigin="anonymous"></script>
-  
-    <script>
-        function initMap() {
-            var ubicacion = { lat: -33.37398147583008, lng: -70.73213958740234  }; // Coordenadas de Santiago, Chile (puedes cambiarlas)
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 14,
-                center: ubicacion
-            });
-            var marker = new google.maps.Marker({
-                position: ubicacion,
-                map: map
-            });
-        }
-    </script>
+   
+   
 </head>
 <body>
     <meta id="evento-id" data-id="X9KLM2"><!-- Código único del evento -->
     <!-- NAVBAR -->
+
+    <!-- POPUP -->
+    <div id="popupOverlay">
+        <div id="popupContent">
+            <img src="/Invitacion/assets/css/carta.jpg" alt="Popup">
+
+            <div id="popupText">
+                Juan & Nahir
+            </div>
+        </div>
+    </div>
+
     <nav id="navbar" class="navbar" style="display: none;">
         <div class="navbar-container">
         <span class="navbar-logo">Juan y Nahir</span>
@@ -41,145 +48,252 @@
         </ul>
         </div>
     </nav>
-  
-  
-    <header id="Hero-Section" class="text-light text-end ">
-        <div class="container">
-            <div class="ms-auto col-12 col-md-7 ">
-                <h1 class="display-1 fw-bold Color sombra">
-                    Nos Casamos <br> y queremos verte allí
-                </h1>
-                <p class="my-5 hp">
-                    Nos sentimos afortunados de haber encontrado el uno en el otro un amor verdadero, y ahora queremos celebrarlo rodeados de nuestros seres más queridos.
-                </p>
-                <div class="mb-4 pb-2">
-                    <audio id="audio" src="/Invitacion/assets/img/audio.mp4" ></audio>
-                    <a class="btn btn-lg btn-info text-light"  id="playPauseBtn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                        <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445"/>
-                      </svg> Play</a>
-                    
+
+ 
+    <div id="Hero-Section">
+        <img src="/Invitacion/assets/img/bannermatri.jpg" class="imagen-fondo imagen-horizontal">
+        <img src="/Invitacion/assets/img/fondoacuarela.jpg" class="imagen-fondo imagen-vertical">
+
+        <div class="container contenido">
+            <div id="Text" class="sombra">
+                Nos casamos! Acompáñanos a <br>celebrar nuestra historia de amor.
+                <br>
+                <div class="nombres">
+                    <span class="strong">Juan</span> & <span class="strong">Nahir</span>
                 </div>
             </div>
-        </div>
-    </header>
+            <div class="secbtnmusica">
+                <!-- Frecuencias musicales -->
+                
 
-    <section id="Acerca-de" class="container text-center my-5">
-
-
-        <div class="row">
-            <div class="col-12 col-md-4">
-                <i class="fa-solid fa-church fa-3x my-3"></i>
-                <h3 class="my-3 fw-bold">Ceremonia Eclesiastica</h3>
-                <p class="my-3">
-                    Agradecemos de corazón que nos acompañen a recibir la bendición de Dios en nuestro matrimonio.
-                </p>
-            </div>
-            <div class="col-12 col-md-4">
-                <i class="fa-solid fa-hotel fa-3x my-3"></i>
-                <h3 class="my-3 fw-bold">Banquete</h3>
-                <p class="my-3">
-                    Después de la ceremonia, los esperamos para seguir celebrando este día lleno de amor y felicidad.
-                </p>
-            </div>
-            <div class="col-12 col-md-4">
-                <i class="fa-solid fa-user-secret fa-3x my-3"></i>
-                <h3 class="my-3 fw-bold">Código de Vestimenta</h3>
-                <p class="my-3">
-                    Usa una vestimenta formal y elegante. El color blanco se reserva para la novia
-                </p>
+                <button id="playPauseBtn" class="btn-musica">
+                    <span class="icono"></span>
+                </button>
+                <span id="dalePlay">Dale Play</span>
+                <div class="freq-bars" >
+                    
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                
+                <audio id="audio" src="/Invitacion/assets/audio/audio_juanNahir.mpeg"></audio>
             </div>
         </div>
-    </section>
-
-    <section class="video-section">
-        <!-- Video de fondo -->
-        <video autoplay muted loop class="background-video" id="background-video">
-            <source src="/Invitacion/assets/img/video2.mp4" type="video/mp4">
-            Tu navegador no soporta videos.
-        </video>
-
-        <!-- Capa de opacidad -->
-        <div class="overlay"></div>
-
-        <!-- Contenedor de contenido -->
-        <div class="content-video">
-            <h1>Te esperamos en nuestro día Especial</h1>
+    </div>
+    
+<!-- Seccion fecha hora contador-->
+    <div class="invitacion-container">
+        <div class="titulo">Te Esperamos</div>
+        <div class="segmentoFecha">
+            <div class="linea-container">
+                <div class="linea"></div>
+                <div class="subtext">Sábado</div>
+                <div class="linea"></div>
+            </div>
             
-            <!-- Contenedor de tarjetas -->
-            <div class="cards-container">
-                <div class="card-derecha">
-                    <h3><span id="fecha">01/07/2025</span></h3>
-                    <h3><span id="hora">17:00 PM</span></h3>
-                    <h3><span id="lugar">Iglesia San Francisco</span></h3>
-                    
-                </div> 
+            <div class="linea-container">
+                <div class="fecha-numero">28</div>
+                <span id="fecha" style="display: none;">01/07/2025</span>
             </div>
-            <p>Será un día lleno de amor, risas y mucha felicidad. 
-                        ¡Los esperamos con el corazón abierto y la pista de baile lista!</p>
+            
+            <div class="linea-container">
+                <div class="linea"></div>
+                <div class="subtext">7:00 Pm</div>
+                <div class="linea"></div>
+            </div>
         </div>
-    </section><!-- FIN SECCION VIDEO-->
-    <!-- Seccion Linea de Tiempo-->
-    <section class="timeline">
-        <div class="event left">
-            <img src="/Invitacion/assets/img/religion.png" alt="Ceremonia">
-            <h3>CEREMONIA</h3>
-            <p>17:00</p>
+        <div class="mes">Febrero</div>
+
+        <div id="message" class="faltapoco">Falta Poco!</div>
+
+        <div id="contador" class="contador">
+            <div class="time-box">
+                <span id="days">0</span>
+            </div>
+            <div class="time-box">
+                <span id="hours">0</span>
+            </div>
+            <div class="time-box">
+                <span id="minutes">0</span>
+            </div>
         </div>
-
-        <div class="line"></div>
-
-        <div class="event right">
-            <img src="/Invitacion/assets/img/coctel.jpg" alt="Cóctel">
-            <h3>CÓCTEL</h3>
-            <p>19:00</p>
+        <div class="contadorTexto">
+            <p>Días</p>
+            <p>Horas</p>
+            <p>Minutos</p>
         </div>
+    </div>
 
-        <div class="event left">
-            <img src="/Invitacion/assets/img/cena.png" alt="Cena">
-            <h3>CENA</h3>
-            <p>20:00</p>
+    <section class="evento-container">
+        
+        <img src="/Invitacion/assets/img/bannermatri.jpg" class="imagen-fondo imagen-horizontal">
+        <img src="/Invitacion/assets/img/fondoacuarela.jpg" class="imagen-fondo imagen-vertical">
+        <div class="evento-contenido">
+            <h1 class="titulo-lugar">Centro de Eventos<br>Casa Bertullini</h1>
+            <p class="direccion">
+                Camino Luis Cruz Martínez 1600, Pudahuel 
+            </p>
+            <a href="https://www.google.com/maps/place/Cam.+Luis+Cruz+Mart%C3%ADnez+1600,+Pudahuel,+Regi%C3%B3n+Metropolitana/@-33.3858344,-70.864766,18.54z/data=!4m15!1m8!3m7!1s0x9662eb03a00a9223:0xd0fd087640214b3e!2sCam.+Luis+Cruz+Mart%C3%ADnez+1600,+Pudahuel,+Regi%C3%B3n+Metropolitana!3b1!8m2!3d-33.3856636!4d-70.8639365!16s%2Fg%2F11c2fm3mpd!3m5!1s0x9662eb03a00a9223:0xd0fd087640214b3e!8m2!3d-33.3856636!4d-70.8639365!16s%2Fg%2F11c2fm3mpd?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" 
+            target="_blank" class="btn-mapa">Ver el Mapa</a>
         </div>
+        
+    </section>
 
+    <section id="dresscode">
+        <div class="contenedor-dress">
 
-        <div class="event right">
-            <img src="/Invitacion/assets/img/fiesta.png" alt="Fiesta">
-            <h3>FIESTA</h3>
-            <p>22:00</p>
+            <h2 class="tituloV">Código de Vestimenta</h2>
+            <h3 class="subtituloV">Elegante</h3>
+
+            <!-- Ícono SVG editable -->
+            <div class="icono">
+                <img src="/Invitacion/assets/img/baile.png" alt="">
+            </div>
+
+            <p class="texto">
+                Nos encantaría verte con tu pinta más elegante!<br>
+                Y por favor evita los colores blanco, rojo, negro y burdeo.
+            </p>
+
         </div>
     </section>
 
-    <!-- FIN SECCION LINEA DE TIEMPO-->
+    <section class="evento-container">
+        
+        <img src="/Invitacion/assets/img/bannermatri.jpg" class="imagen-fondo imagen-horizontal">
+        <img src="/Invitacion/assets/img/fondoacuarela.jpg" class="imagen-fondo imagen-vertical">
+        <div class="evento-contenido">
+            <div class="sombra">
+                <h1 class="titulo-lugar">Lista de Deseos</h1>
+                <p class="direccion">
+                    ¡Tu presencia es nuestro mayor tesoro!  <br>
+Pero si deseas hacernos un regalo, te compartimos nuestra <br>lista de deseos que hemos preparado con mucha ilusión.
+                </p>
+            </div>
+            
+            <a id="btn-ver-lista" class="btn-mapa">Ver Lista</a>
+        </div>
+        
+    </section>
 
-    <!-- seccion contador de tiempo-->
-     <section id="contador" class="text-center">
-            <div class="countdown-container">
-                <h2 id="message">Solo Faltan</h2>
-                <div class="countdown">
-                    <div class="time-box">
-                        <span id="days">0</span>
-                        <p>Días</p>
+    <section id="dresscode">
+        <div class="contenedor-dress">
+
+            <h2 class="tituloV"><span class="tituloF">S</span>ube Tus Fotos</h2>
+
+            <!-- Ícono SVG editable -->
+            <div class="icono">
+                <img src="/Invitacion/assets/img/camara.png" alt="">
+            </div>
+
+            <p class="texto">
+                Nos encantaría ver todas las fotos y videos que captures <br>
+                de nuestro gran día, no te olvides de subirlas <br>a nuestro álbum digital
+            </p>
+            <a href="https://photos.app.goo.gl/vUAkTkoVznKgcje27" target="_blank" id="btn-ver-lista" class="btn-fotos">Subir Fotos</a>
+
+        </div>
+    </section>
+
+    <section class="evento-container tg">    
+        <img src="/Invitacion/assets/img/bannermatri.jpg" class="imagen-fondo imagen-horizontal">
+        <img src="/Invitacion/assets/img/fondoacuarela.jpg" class="imagen-fondo imagen-vertical">
+        
+        <div class="evento-contenido">
+            <div class="rsvp-overlay">
+                <h1 class="titulo-lugar">Confirma tu Asistencia</h1>
+                <form id="form-confirmar-asistencia" class="rsvp-form">
+                    <div class="agrupar">
+                        <input id="nombreInvitado" type="text" placeholder="Tu Nombre" required class="rsvp">
+                        <input id="emailInvitado" type="email" placeholder="Tu Email aquí" required class="rsvp">
+                        <select required class="rsvp" id="respuesta" name="respuesta">
+                            <option value="">Selecciona una opción</option>
+                            <option value="Confirmado">Sí, asistiré</option>
+                            <option value="rechazado">No podré asistir</option>
+                            <option value="Pendiente">Pendiente</option>
+                            
+                        </select>
+                    </div>            
+                    <textarea id="asistentes" class="rsvp" placeholder="Escribe aquí el listado de asistentes, separado por comas ( , )"></textarea>
+                    <textarea id="comentario" class="rsvp" placeholder="¿Quieres agregar un comentario para los novios?"></textarea>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn-resp rsvp-btn">Responder</button>
                     </div>
-                    <div class="time-box">
-                        <span id="hours">0</span>
-                        <p>Horas</p>
+                </form>
+
+                
+                
+                <!-- Mensaje de éxito -->
+                <div class="popup" id="successPopup">
+                    <div class="popup-content">
+                        <h2>¡Excelente! <span class="cerrar-modal">&times;</span></h2>
+                        
+                        <p>Únete a nuestro evento especial y agrégalo a tu calendario.</p>
+                        <button id="addToCalendar" class="btn-modal">Enviar a Agenda</button>
+                        
                     </div>
-                    <div class="time-box">
-                        <span id="minutes">0</span>
-                        <p>Minutos</p>
+                </div>
+
+                <!-- Formulario para "No Asistirá" -->
+                <div class="popup" id="noFormPopup">
+                    <div class="popup-content">
+                        <h2>Te extrañaremo <span class="cerrar-modal">&times;</span></h2>
+                        <p>Gracias por informarnos</p>
                     </div>
                 </div>
             </div>
-            <h3>Prepara tu Agenda</h3>
-            <p>Recuerda organizar con tiempo tu agenda para que no pierdas ningún momento de esta celebración tan especial para nosotros.</p>
+        </div>
+    </section>
+
+    <section class="programa">
+        <h2 class="programa-titulo">Itinerario</h2>
+
+        <div class="timeline">
+            <div class="evento left">
+                <img src="/Invitacion/assets/img/fiesta.png" alt="Cóctel">
+                <div class="prgtexto">
+                    <span class="hora">7:00 pm</span>
+                    <p >Cóctel de Bienvenida</p>
+                </div>
+            </div>
+
+            <div class="evento right">
+                <img src="/Invitacion/assets/img/copas.png" alt="Cóctel">
+                <div class="prgtexto">
+                    <span class="hora">8:30 pm</span>
+                    <p class="texto">Brindemos por el Amor</p>
+                </div>
+            </div>
+
+            <div class="evento left">
+                <img src="/Invitacion/assets/img/cena.png" alt="Cóctel">
+                <div class="prgtexto">
+                    <span class="hora">9:00 pm</span>
+                    <p class="texto">Buen Provecho</p>
+                </div>
+            </div>
+
+            <div class="evento right">
+                <img src="/Invitacion/assets/img/bailar.png" alt="Cóctel">
+                <div class="prgtexto">
+                    <span class="hora">10:00 pm</span>
+                    <p class="texto">Todos a Bailar</p>
+                </div>
+            </div>
+        </div>
+        <p class="texto mb-0 pt-2">
+            Hay momentos en la vida que solo ocurren una vez,por eso agradecemos tu puntualidad.
+        </p>
+    </section>
 
 
-     </section>
-    <!-- FIN SECCION CONTADOR DE TIEMPO-->
+    <section class="evento-container">
+        
+        <img src="/Invitacion/assets/img/bannermatri.jpg" class="imagen-fondo imagen-horizontal">
+        <img src="/Invitacion/assets/img/fondoacuarela.jpg" class="imagen-fondo imagen-vertical">
 
-
-    <section id="Carrusel" class="container text-center my-5">
-        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="evento-contenido">
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img src="/Invitacion/assets/img/pareja1.jpg" class="d-block w-100" alt="...">
@@ -207,146 +321,29 @@
             </button>
           </div>
 
-    </section>
-
-    <section id="Contacto">
-
-        <h2 class="display-4 fw-bold text-center mb-0">Confirma tu Asistencia</h2>
-
-        <p class="text-center d-none d-md-block mb-2">Se parte de nuestra celebración y confirma tu asistencia aqui...</p>
-        <form id="form-confirmar-asistencia">
-            
-            
-            <div class="form-group agrupar">
-                <div class="form-group mb-2 tamaño" >
-                    <input class="form-control" placeholder="Tu Nombre" id="nombreInvitado" type="text" required/>
-                </div>                
-                <div class="form-group mb-2 tamaño">
-                    <input class="form-control" placeholder="Tu Email aqui" type="email" id="emailInvitado" required/>
-                </div>
-            </div>            
-            <div class="form-group mb-2">
-                <textarea class="form-control" placeholder="Escribe aquí el listado de asistentes, separado por comas (,)" id="asistentes"></textarea>
-            </div>
-            <div class="form-group mb-2">
-                <textarea class="form-control" placeholder="¿Quieres agregar un comentario para los novios?" id="comentario"></textarea>
-            </div>
-            <select id="respuesta" name="respuesta" required class="form-select mb-2">
-                <option value="">Selecciona una opción</option>
-                <option value="Confirmado">Confirmar asistencia</option>
-                <option value="Rechazado">Rechazar invitación</option>
-                <option value="Pendiente">Pendiente</option>
-            </select>
-            <div class="text-center">
-                <button type="submit" class="btn-resp">Responder</button>
-            </div>
-
-        </form>
-            
-            <!--<div class="my-3 text-center">
-                 Botón para abrir el pop-up 
-                <button id="openPopup">Confirmar Agenda</button>
-            </div>-->
-        
-        <!-- Pop-up -->
-            <div class="popup" id="popup">
-                <div class="popup-content">
-                    <h2>¿Confirmas tu asistencia? <span class="cerrar-modal">&times;</span></h2>
-                    <button class="yes-btn" id="yesBtn">Sí</button>
-                    <button class="no-btn" id="noBtn">No</button>
-                </div>
-            </div>
-            
-            <!-- Mensaje de éxito -->
-            <div class="popup" id="successPopup">
-                <div class="popup-content">
-                    <h2>¡Excelente! <span class="cerrar-modal">&times;</span></h2>
-                    
-                    <p>Únete a nuestro evento especial y agrégalo a tu calendario.</p>
-                    <button id="addToCalendar">Enviar a Agenda</button>
-                    
-                </div>
-            </div>
-
-            <!-- Formulario para "No Asistirá" -->
-            <div class="popup" id="noFormPopup">
-                <div class="popup-content">
-                    <h2>Te extrañaremo <span class="cerrar-modal">&times;</span></h2>
-                    <p>Gracias por informarnos</p>
-                </div>
-            </div>
-
-
-    </section >
-    <section id="Card-3D" >
-        <div class="card-container">
-            <div class="card">
-                <div class="card-front">
-                    <h3>Regalos</h3>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7fhZvPUolKUK2csrMkRZ7i2_03L-I-oNrBuxy6Pqtf4G3jMhUZNn1azqIeg6IG26gPL4&usqp=CAU" alt="Imagen ejemplo">
-                </div>
-                <div class="card-back">
-                    <h3>Detalles</h3>
-                    <p>Fecha subida: 31/08/2025</p>
-                    <p>Marcada como favorita</p>
-                </div>
-            </div>
-        </div>
-        <div class="card-container">
-            <div class="card">
-                <div class="card-front">
-                    <h3>Como llegar</h3>
-                    <img src="https://cdn-icons-png.flaticon.com/512/2667/2667975.png" alt="Imagen ejemplo">
-                </div>
-                <div class="card-back">
-                    <h3>Detalles</h3>
-                    <p>Fecha subida: 31/08/2025</p>
-                    <p>Marcada como favorita</p>
-                </div>
-            </div>
         </div>
     </section>
-    <section id="galeriaFavoritas" class="galeria-polaroid" style="display: none;">
-        <h2>📷 Fotos Compartidas</h2>
-        <div class="contenedor-fotos" id="favoritasGrid"></div>
-        <div class="paginacion-favoritas">
-            <button id="btn-prev" class="btn-pagina oculto">← <span class="ocultarText">Anterior</span></button>
-            <span id="pagina-actual" class="pagina-info"></span>
-            <button id="btn-next" class="btn-pagina oculto"><span class="ocultarText">Siguiente</span> →</button>
-        </div>          
-    </section>
-      
-    
-    <div id="login-flotante">
-        <button id="btn-login-flotante">Iniciar Sesión</button>
-    </div>
-    
-    <div id="modal-login" class="modal">
-        <div class="modal-contenido">
-            
-            <h2>Iniciar Sesión <span class="cerrar-modal-login">&times;</span></h2>
-            <form id="formulario-login-flotante">
-                <input type="text" id="usuario-flotante" name="usuario" required autocomplete="username" placeholder="Correo electrónico" autofocus>
-                <input type="password" id="contrasena-flotante" name="contrasena" required autocomplete="current-password" placeholder="Contraseña">
-                <button type="submit">Entrar</button>
-            </form>
+
+    <!-- POPUP LISTA DE DESEOS -->
+    <div id="popup-lista" class="popup-lista-overlay">
+        <div class="popup-lista">
+            <button class="cerrar-popup-lista">&times;</button>
+
+            <h2 class="titulo-popup-lista">Lista de Deseos</h2>
+
+            <div id="contenedor-regalos" class="regalos-grid">
+                <!-- Aquí se cargan los regalos desde el backend -->
+            </div>
         </div>
     </div>
-
-  
-    
-    <footer class="bg-light text-center text-light p-4 footer1" id="footer"><!--
-        <a href="https://www.linkedin.com/in/jose-m-caracas-rodriguez-39039253/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="https://www.instagram.com/jmcaracas05/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://twitter.com/JMCaracas05" target="_blank"><i class="fa-brands fa-twitter"></i></a> -->
-    </footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXcsG4Z5LGYNUJt7qgXrQrYyW-yKJWUeQ&callback=initMap" async defer></script>-->
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
   
     <script src="/Invitacion/assets/js/scrit.js" defer></script>
     <script src="/Invitacion/assets/js/login.js" defer></script>
+    <script src="/Invitacion/assets/js/sketch.js"></script>
 </body>
 </html>
