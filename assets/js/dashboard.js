@@ -81,8 +81,9 @@ async function obtenerNotificaciones(API_URL, token, codigo) {
         'Content-Type': 'application/json'
       }
     });
-
-    const notificaciones = await res.json();
+    const data = await res.json();
+    console.log(data);
+    const notificaciones = data.notificaciones
     const ul = document.getElementById("lista-notificaciones");
     ul.innerHTML = "";
     notificaciones.forEach(n => {
