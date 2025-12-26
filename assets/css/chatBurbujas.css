@@ -146,4 +146,11 @@ button {
     font-size: 11px;
     padding: 2px 4px;
   }
+  .mensaje{
+    padding: 0;
+  }
+
+  .strong{
+    margin: 0px;
+  }
 }

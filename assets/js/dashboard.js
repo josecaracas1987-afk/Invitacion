@@ -72,18 +72,28 @@ async function obtenerInvitados(API_URL, token, codigo) {
 }
 
 
-async function obtenerNotificaciones() {
-  // Lógica provisional
-  const notis = [
-    "No hay nuevas notificaciones"
-  ];
-  const ul = document.getElementById("lista-notificaciones");
-  ul.innerHTML = "";
-  notis.forEach(n => {
-    const li = document.createElement("li");
-    li.textContent = n;
-    ul.appendChild(li);
-  });
+async function obtenerNotificaciones(API_URL, token, codigo) {
+  try {
+    const res = await fetch(`${API_URL}/notificaciones/${codigo}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const notificaciones = await res.json();
+    const ul = document.getElementById("lista-notificaciones");
+    ul.innerHTML = "";
+    notificaciones.forEach(n => {
+      const li = document.createElement("li");
+      li.textContent = n;
+      ul.appendChild(li);
+    });
+  } catch (err) {
+    alert("Error al cargar notificaciones");
+    console.error(err);
+  } 
 }
 
 async function obtenerListaRegalos(API_URL, token, codigo) {
@@ -129,18 +139,26 @@ function cargarMensajesChat() {
       <div class="mensaje">${m.comentario}</div>
       <div class="chat-meta">${!isNaN(fecha) ? fecha.toLocaleString() : "Sin fecha"}</div>
       <div class="chat-actions">
-        <button class="btnLike" onclick="toggleLike('${m.id}')">
+        <button class="btnLike" >
           <i class="fas fa-thumbs-up like"></i> ${m.likes || 0}
         </button>
-        <button class="btnfav" onclick="toggleFavorito('${m.id}')">
+        <button class="btnfav" >
         ${m.favorito 
             ? '<i class="fas fa-heart heart"></i>'
             : '<i class="far fa-heart heart"></i>'
         }</button>
       </div>
     `;
+    div.querySelector(".btnLike").addEventListener("click", (e) => {
+      toggleLike(m.id);
+    });
+    div.querySelector(".btnfav").addEventListener("click", (e) => {
+      toggleFavorito(m.id);
+    });
+
     container.appendChild(div);
   });
+
 }
 
 function mostrarPagina(pagina) {
@@ -240,6 +258,7 @@ async function toggleFavorito(invitadoId) {
         ? '<i class="fas fa-heart heart"></i>' 
         : '<i class="far fa-heart heart"></i>';
     }
+    cargarMensajesChat(); // Renderiza de nuevo solo el chat
   } catch (err) {
     console.error("Error al marcar como favorito:", err);
   }
