@@ -167,7 +167,9 @@ body, html {
 }
 
 .instruciones {
-  font-family: parisienne, cursive;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #7b1e2b;
+  line-height: 0.8;
 }
 
 .contadorTexto {
@@ -202,11 +204,10 @@ body, html {
   .faltapoco { font-size: 2rem; }
   .linea { width: 90px; }
   .contador { gap: 10px; font-size: 2.8rem; width: 80%; height: 70px; margin: 20px 36px 0 20px; }
+  .contadorTexto p { width: auto; font-size: 1.2rem;margin: 0; }
   .contadorTexto { gap: 20px;}
-  #seconds{
-    width: 40px;
-    padding: auto;
-  }
+  #seconds{width: 40px; padding: auto;}
+
 }
 
 
@@ -229,6 +230,7 @@ body, html {
   color: #f5d786;
   text-decoration: none;
   transition: 0.2s;
+  cursor: pointer;
 }
 
 .btn-mapa:hover {
@@ -395,7 +397,7 @@ body, html {
     align-items: center;
     display: flex;
     justify-content: flex-end;
-    gap: 20px;
+    gap: 15px;
 }
 
 .btn-musica.pausando .icono::before,
@@ -413,14 +415,14 @@ body, html {
     gap: 10px;
     opacity: 0;
     transition: opacity .4s;
-    margin-right: 20%;
+    margin-right: 30%;
 }
 
 #dalePlay {
     font-size: 2rem;
     color: #877238;
     font-weight: 500;
-    margin-right: 14%;
+    margin-right: 25%;
 }
 
 .freq-bars span {
@@ -655,11 +657,12 @@ body, html {
   justify-content: space-evenly;
   flex-direction: column;
   pointer-events: auto;
+  color: #7b1e2b;
 }
 
 .card-back {
   transform: rotateY(180deg);
-  gap: 5px;
+  gap: 2px;
   background: #fff;
 }
 
@@ -671,8 +674,13 @@ body, html {
   margin: 0;
 }
 
+.cancelar-seleccion {
+  cursor: pointer;
+  color: #7b1e2b;
+  margin: 0px;
+}
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .precio {

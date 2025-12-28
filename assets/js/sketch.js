@@ -64,6 +64,7 @@ document.getElementById("popup-lista").addEventListener("click", e => {
 async function cargarRegalos() {
     const contenedor = document.getElementById("contenedor-regalos");
     const eventoId = document.getElementById("evento-id").dataset.id;
+    
 
     contenedor.innerHTML = "<p>Cargando...</p>";
 
@@ -103,10 +104,10 @@ async function cargarRegalos() {
                         </div>
                     </div>
                     <div class="card-back">
-                        <h5 class="cancelar-seleccion" title="Presionar aqui para volver">Tu regalo es un gran aporte</h5>
-                        <p class="instruciones">
+                        <h5 class="cancelar-seleccion" title="Presionar aqui para volver">Datos Bancarios:</h5>
+                        <p><span class="instruciones">
                         BCI - Cta. Cte. <br>Nro. 777927429492 <br>Juan Carrasquero <br>Rut 27.429.492-2 <br>jjcoviol@gmail.com
-                        <br>Deja el nombre del regalo que seleccionaste en el detalle.
+                        <br></span>Escribe en el asunto el regalo seleccionado.
                         </p>
                         <button class="btn-confirmar">Confirmar</button>
                     </div>
@@ -154,8 +155,10 @@ async function confirmarRegalo(Id, tarjeta,titulo) {
         });
 
         if (!res.ok) throw new Error("Error al confirmar regalo");
-        document.getElementById("popup-lista").classList.add("hidden");
+        const popup = document.getElementById("popup-lista");
+        popup.style.display = "none";
         document.getElementById("mensajeGracias").classList.remove("hidden");
+        document.body.style.overflow = "auto";// Restaurar scroll
 
     } catch (err) {
         console.error("Error confirmando regalo:", err);
