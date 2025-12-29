@@ -57,7 +57,9 @@ document.querySelector(".cerrar-popup-lista").addEventListener("click", () => {
 document.getElementById("popup-lista").addEventListener("click", e => {
     if (e.target.id === "popup-lista") {
         e.target.style.display = "none";
+        document.body.style.overflow = "auto";// Restaurar scroll
     }
+    document.body.style.overflow = "auto";// Restaurar scroll
 });
 
 // Consultar regalos desde backend
